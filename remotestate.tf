@@ -2,7 +2,7 @@ provider "aws" {
   region  = "${var.aws_region}"
 }
 resource "random_id" "tc-rmstate" {
-  byte_length = 2
+  byte_length = 3
 }
 resource "aws_s3_bucket" "tfrmstate" {
   bucket        = "tc-remotestate-${random_id.tc-rmstate.dec}"
@@ -12,6 +12,11 @@ resource "aws_s3_bucket" "tfrmstate" {
   tags = {
     Name = "tf remote state"
   }
+}
+
+resource "aws_s3_bucket_object" "rmstate_folder" {
+  bucket = "${aws_s3_bucket.tfrmstate.id}"
+  key = "terraform-aws/"
 }
 
 resource "aws_dynamodb_table" "terraform_statelock" {
