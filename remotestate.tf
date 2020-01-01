@@ -2,7 +2,7 @@ provider "aws" {
   region  = "${var.aws_region}"
 }
 resource "random_id" "tc-rmstate" {
-  byte_length = 3
+  byte_length = 2
 }
 resource "aws_s3_bucket" "tfrmstate" {
   bucket        = "tc-remotestate-${random_id.tc-rmstate.dec}"
