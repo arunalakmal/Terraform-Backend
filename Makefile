@@ -2,6 +2,8 @@ SHELL := /usr/bin/env bash
 
 NDEF = $(if $(value $(1)),,$(error $(1) not set))
 
+.PHONY: init validate apply clean
+
 init: 
 			terraform init
 
