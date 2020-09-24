@@ -4,6 +4,8 @@ NDEF = $(if $(value $(1)),,$(error $(1) not set))
 
 .PHONY: init validate apply clean
 
+all: init validate apply
+
 init: 
 	@terraform init
 
