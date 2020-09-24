@@ -17,4 +17,4 @@ destroy:
 	@terraform destroy -auto-approve
 
 clean:
-	@rm -rf .terraform/ terraform.tfstate
+	@rm -rf .terraform/ terraform.tfstate*
